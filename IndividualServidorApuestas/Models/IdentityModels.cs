@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using System;
+using System.Data.Entity;
 
 namespace IndividualServidorApuestas.Models
 {
@@ -20,11 +22,17 @@ namespace IndividualServidorApuestas.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        [ThreadStatic]
+        public static ApplicationDbContext applicationDbContext;
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-        
+
+        public DbSet<Apuesta> Apuestas { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
