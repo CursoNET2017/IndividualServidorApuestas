@@ -13,5 +13,7 @@ namespace IndividualServidorApuestas
         public string DNI { get; set; }
         public string Email { get; set; }
         public string Contrasena { get; set; }
+        public string Nick { get; set; }
+        public string Cuenta { get; set; }
     }
 }
