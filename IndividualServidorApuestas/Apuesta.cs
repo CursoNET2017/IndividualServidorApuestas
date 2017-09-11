@@ -8,7 +8,7 @@ namespace IndividualServidorApuestas
     public class Apuesta
     {
         public long Id { get; set; }
-        public string Tipo { get; set; }
+        public string TipoDeporte { get; set; }
         public float Cuota { get; set; }
         public string Fecha { get; set; }
         public string Evento1 { get; set; }
